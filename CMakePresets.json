@@ -1,0 +1,46 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 20, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "mingw-debug",
+      "displayName": "MinGW x64 Debug（日常开发）",
+      "description": "D:/mingw64 的 g++ 8.1 + Ninja，生成到 build/debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_CXX_COMPILER": "D:/mingw64/bin/g++.exe"
+      }
+    },
+    {
+      "name": "mingw-release",
+      "displayName": "MinGW x64 Release（压测对比用）",
+      "description": "D:/mingw64 的 g++ 8.1 + Ninja，生成到 build/release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_CXX_COMPILER": "D:/mingw64/bin/g++.exe"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "build-debug", "configurePreset": "mingw-debug", "jobs": 8 },
+    { "name": "build-release", "configurePreset": "mingw-release", "jobs": 8 }
+  ],
+  "testPresets": [
+    {
+      "name": "test-debug",
+      "configurePreset": "mingw-debug",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "test-release",
+      "configurePreset": "mingw-release",
+      "output": { "outputOnFailure": true }
+    }
+  ]
+}

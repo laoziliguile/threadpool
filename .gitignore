@@ -1,0 +1,33 @@
+# ---- 构建产物 ----
+build/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.obj
+*.o
+*.exe
+*.pdb
+*.ilk
+*.dll.a
+*.a
+
+# ---- IDE / 编辑器 ----
+.vscode/*.log
+*.code-workspace
+.cache/
+compile_commands.json
+.vs/
+*.user
+*.suo
+*.swp
+*~
+
+# ---- 运行期产物 ----
+logs/
+imgui.ini
+dash_history.csv
+
+# ---- 系统 ----
+Thumbs.db
+desktop.ini
